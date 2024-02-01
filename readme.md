@@ -28,8 +28,8 @@ You are required to use a maximum of 3 hours 30 minutes for the attempt/completi
 
 - Set up a Node.js server to handle backend functionality.
 - Create endpoints for notes, users, and collaborative features.
-- Connect the backend to either a Firebase service or a mongodb database.
-- Integrate user authentication and data storage.
+- Connect the backend to Firebase.
+- Integrate Firebase for user authentication and data storage.
 
 ### Functionality:
 
