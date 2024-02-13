@@ -27,7 +27,7 @@ function Footer() {
         <div className=''>
        
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li>Ever wish you could press rewind on a meeting? Now you can with TranscribeMate, your go-to meeting transcription wizard. Say goodbye to scribbled notes and hello to a world where every word counts.</li>
+                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit ab reprehenderit aliquid labore possimus. Officiis laboriosam culpa quam repellat aliquam, tempore quaerat, voluptate excepturi explicabo, eum ratione ipsum autem a!</li>
             </ul>
             <li className='flex gap-x-4 mt-4'>
 
@@ -103,7 +103,7 @@ function Footer() {
         <h2 className="mb-6 text-lg font-bold text-grey-200  dark:text-white">Contact Us</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                    <Link href="#" className="hover:underline">info@fmcn.com</Link>
+                    <Link href="#" className="hover:underline">estech</Link>
                 </li>
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">+1 813 678 7890</Link>
