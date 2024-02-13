@@ -1,6 +1,6 @@
 const express=require('express')
 const app=express.Router()
-const User= require('../model/user')
+const WorkDetails= require('../model/work')
 
 
 app.route('/').get(async(req,res)=>{
@@ -21,15 +21,15 @@ app.route('/').get(async(req,res)=>{
         if(socialAccount)filter.socialAccount=socialAccount
        
         if(portfolioWebsite)filter.portfolioWebsite=portfolioWebsite
-    const get_all_user= await User.find(filter).workDetails("ward_id").sort()
-    if(!get_all_user)return res.json({
-        msg:"user  not exist ",
+    const get_all_WorkDetails= await WorkDetails.find(filter).sort()
+    if(!get_all_WorkDetails)return res.json({
+        msg:"WorkDetails  not exist ",
         code:404,
     })
 
     res.json({
         msg:"successful",
-        data:get_all_user,
+        data:get_all_WorkDetails,
         code:200
        
     })
@@ -39,7 +39,7 @@ app.route('/').get(async(req,res)=>{
         console.log(err); 
 
     res.status(500).send(err)
-    res.json({msg:"failed to retrieve user"})
+    res.json({msg:"failed to retrieve WorkDetails"})
     }
 })
 
@@ -50,22 +50,22 @@ app.route('/create').post(async(req,res)=>{
     })
 
     try{
-        const found_User_no= await User.find({"email":req.body.email})
+        const found_WorkDetails_no= await WorkDetails.findById(req.body.email)
 
        
-    //    console.log("found",found_User_no)
-if(found_User_no)return res.json({
+    //    console.log("found",found_WorkDetails_no)
+if(found_WorkDetails_no)return res.json({
     msg:"Email already exist "
 })
 
-const user=   new User(req.body)
-console.log(user)
-await user.save()
+const WorkDetails=   new WorkDetails(req.body)
+
+await WorkDetails.save()
 
 
 res.json({
     msg:"successful",
-    data:user,
+    data:WorkDetails,
     code:200
 })
     }
@@ -74,7 +74,7 @@ res.json({
         res.status(500).send(err)
         console.log(err);
         res.json({
-            msg:"failed to create User"
+            msg:"failed to create WorkDetails"
         })
     }
 })
@@ -87,13 +87,13 @@ res.json({
 
     })
     try{
-        const User= await User.findById(req.params.id)
-const updated_User={...User._doc,...req.body}
-User.overwrite(updated_User)
- await User.save()
+        const WorkDetails= await WorkDetails.findById(req.params.id)
+const updated_WorkDetails={...WorkDetails._doc,...req.body}
+WorkDetails.overwrite(updated_WorkDetails)
+ await WorkDetails.save()
 res.json({
   msg:"success",
-  data:User,
+  data:WorkDetails,
     code:200
 })
 
@@ -101,7 +101,7 @@ res.json({
     catch(err){
         res.status(500).send(err)
         res.json({
-            msg:"failed to update User"
+            msg:"failed to update WorkDetails"
         })
         console.log(err);
     }
@@ -113,15 +113,15 @@ res.json({
         code:400
     })
     try{
-     const User=   await User.findById(req.params.id)
-     if(!User)return res.json({
-        msg:"User does not exist",
+     const WorkDetails=   await WorkDetails.findById(req.params.id)
+     if(!WorkDetails)return res.json({
+        msg:"WorkDetails does not exist",
         code:404
      })
-await User.findByIdAndDelete(req.params.id)
+await WorkDetails.findByIdAndDelete(req.params.id)
 
      res.json({
-        msg:"User deleted",
+        msg:"WorkDetails deleted",
         code:200
      })
     }
@@ -129,8 +129,8 @@ await User.findByIdAndDelete(req.params.id)
         res.status(500).send(err)
         console.log(err);
         res.json({
-        msg:"failed to delete User"    
+        msg:"failed to delete WorkDetails"    
         })
     }
 })
-module.exports=User
+module.exports=WorkDetails

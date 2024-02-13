@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+/* styles/globals.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+
+
+
+
+ audio::-webkit-media-controls-panel{
+  background-color: rgb(5 89 65 / var(--tw-bg-opacity));
+  border-radius: 10%;
+ }
+ audio::-webkit-media-controls-play-button{
+  background-color: whitesmoke;
+  color: white;
+ }
+
+ .text-slide-up-u {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-width: 100%;
+}
+
+.text1 {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+

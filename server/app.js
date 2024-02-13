@@ -1,9 +1,11 @@
+require('dotenv').config()
 var createError = require("http-errors");
 var express = require("express");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
+
 
 var app = express();
 
@@ -14,7 +16,9 @@ app.use(cookieParser());
 
 app.use("/", indexRouter);
 app.use("/users", require("./routes/users"));
-
+app.use("login",require("./routes/userAuth"))
+const DBConnection = require('./libs/mongo')
+DBConnection()
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
